@@ -1,16 +1,7 @@
-<div>
-  <%= image_tag @book.get_image %>
-  <p>Title:<%= @book.title %></p>
-  <p>Opinion:<%= @book.opinino %></p>
-  <%= if book_comments.user == current_user %>
-    <%= link_to "削除", book_book_comment_path(book_comment.book, book_comment), method: :delete %>
-  <% end %>
-<div>
+<h1>Book detail</h1>
 
 <div>
- <storong>Books</strong>
-   <p>Title</p>
-   <% link_to>
-   <p>Opinion</p>
-    
+  <%= image_tag @book.user.get_profile_image(100,100) %>
+  <p>Title:<%= @book.title %></p>
+  <p>Opinion:<%= @book.opinino %></p>
 </div>
