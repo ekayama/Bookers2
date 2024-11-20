@@ -4,4 +4,6 @@
   <%= image_tag @book.user.get_profile_image(100,100) %>
   <p>Title:<%= @book.title %></p>
   <p>Opinion:<%= @book.opinino %></p>
+  <%= link_to "destroy", book_path(@book), method: :delete %>
+ 
 </div>
