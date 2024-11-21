@@ -21,6 +21,10 @@ class BooksController < ApplicationController
     @user = current_user
   end
 
+  def edit
+    @book = Book.find(params[:id])
+  end
+
   def update
     @book = Book.find(params[:id])
     if @book.update(book_params)
@@ -28,7 +32,7 @@ class BooksController < ApplicationController
       redirect_to book_path(@book)
     else
       flash.now[:notice] = "更新失敗"
-      render :show
+      render :edit
     end
   end
 
@@ -50,7 +54,7 @@ class BooksController < ApplicationController
   private
 
   def book_params
-    params.require(:book).permit(:title, :opinino)
+    params.require(:book).permit(:title, :body)
   end
 
 end

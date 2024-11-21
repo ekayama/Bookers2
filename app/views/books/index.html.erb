@@ -13,7 +13,7 @@
   <h4>Title</h4>
   <%= f.text_field :title %>
   <h4>Opinion</h4>
-  <%= f.text_area :caption %>
+  <%= f.text_area :body %>
   <%= f.submit 'Create Book' %>
 <% end %>
 
@@ -21,7 +21,7 @@
 <% @books.each do |book| %>
   <div>
     <p>Title:<%= book.title %></p>
-    <p>Opinion:<%= book.opinino %></p>
+    <p>Opinion:<%= book.body %></p>
     <%= link_to "show", book_path(book) %>
   </div>
 

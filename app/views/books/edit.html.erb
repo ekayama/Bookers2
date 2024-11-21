@@ -2,7 +2,7 @@
 <%= form_with model: @book do |f| %>
   <label for="inputTitle">Title</label>
   <%= f.text_field :title, autofocus: true, id:"inputTitle" %>
-  <label for="inputOpinino">opinion</label>
-  <%= f.text_area :opinino, id: "inputOpinino", rows: 3, cols: 20 %>
+  <label for="inputBody">opinion</label>
+  <%= f.text_area :body, id: "inputBody", rows: 3, cols: 20 %>
   <%= f.submit "変更を保存" %>
 <% end %>
