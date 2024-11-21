@@ -29,9 +29,9 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     if @user.update(user_params)
       flash[:notice] = "You have updated user successfully."
-      redirect_to edit_user_path(@user.id)
+      redirect_to user_path(@user.id)
     else
-      flash.now[:notice] = "更新失敗"
+      flash.now[:notice] = "更新失敗に失敗しました。Name、 Introductionどちらも記入してください"
       render :edit
     end
 

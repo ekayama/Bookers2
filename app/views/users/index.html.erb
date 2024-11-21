@@ -2,7 +2,10 @@
 
 <div class="profile-container">
   <%= image_tag @user.get_profile_image(100, 100) %>
-  <h5 class="profile-name"><%= @user.name %></h5>
+  <h4>name</4>
+    <p><%= @user.name %></p>
+  <h4>introduction</4>
+    <p><%= @user.introduction %></p>
   <% if @user == current_user %>
     <p><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
   <% end %>
