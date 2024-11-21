@@ -10,6 +10,7 @@ class UsersController < ApplicationController
     @user = current_user
     @users = User.all
     @book = Book.new
+    # indexで定義したbookを入れる箱がなかったからBook.newで箱を作る必要がある
   end
 
   def show
@@ -17,6 +18,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @books = @user.books
     @book = Book.new
+    # showで定義したbookを入れる箱がなかったからBook.newで箱を作る必要がある
   end
 
   def edit

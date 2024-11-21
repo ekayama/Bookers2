@@ -9,6 +9,10 @@ class BooksController < ApplicationController
     if @book.save
       flash[:notice] = "You have created book successfully."
       redirect_to books_path
+      redirect_to books_path
+      # パスの後ろに引数が必要か否かは「rails routes」で
+      # 真ん中に表示されるURLに[:id]と記載があるかないか。なかった場合はパスの後ろには何も必要ない
+      # 「:id」の記載があった場合には対象となる引数や変数を設定する必要がある
     else
       flash.now[:notice] = "投稿に失敗"
       render :index
@@ -46,7 +50,7 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
     if @book.destroy
       flash[:notice] = "You have destroyed book successfully."
-      redirect_to books_path
+
     end
   end
 
