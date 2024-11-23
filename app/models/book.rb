@@ -5,6 +5,7 @@ class Book < ApplicationRecord
   has_many :book_comments, dependent: :destroy
 
   validates :title, presence: true
-  validates :body, presence: true
+  # presence: true=指定された項目（ここではタイトル）が空か確認するためのコード
+  validates :body, presence: true, length: { maximum: 200 }
 end
 

@@ -5,17 +5,18 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    
+    <script src="https://kit.fontawesome.com/2bd7263e69.js" crossorigin="anonymous"></script>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
   <header>
     <% if user_signed_in? %>
-      <li>
+      <p>
         <%= link_to "Bookers", root_path %>
-      </li>
+      </p>
       <li>
         <%= link_to "Home", user_path(current_user.id) %>
       </li>
@@ -30,12 +31,22 @@
       </li>
 
     <% else %>
+      <p>
+        <%= link_to "Bookers", root_path %>
+      </p>    
       <li>
-        <%= link_to "新規登録", new_user_registration_path %>
+       <%= link_to "Home", root_path %>
       </li>
       <li>
-        <%= link_to "ログイン", new_user_session_path %>
+        <%= link_to "About", about_path %>
       </li>
+      <li>
+      <%= link_to "Sign up", new_user_registration_path %>
+      </li>
+      <li>
+        <%= link_to "Log in", new_user_session_path %>
+      </li>
+
     <% end %>
   </header>
 

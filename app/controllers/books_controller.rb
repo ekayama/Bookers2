@@ -1,4 +1,6 @@
 class BooksController < ApplicationController
+before_action :ensure_correct_user, only: [:edit, :update]
+
   def new
     
   end
@@ -14,7 +16,7 @@ class BooksController < ApplicationController
       # 真ん中に表示されるURLに[:id]と記載があるかないか。なかった場合はパスの後ろには何も必要ない
       # 「:id」の記載があった場合には対象となる引数や変数を設定する必要がある
     else
-      flash.now[:notice] = "投稿に失敗しました。Title, Opinionどちらも記入してください"
+      # flash.now[:notice] = "投稿error。Title, Opinionどちらも記入してください"
       render :new
     end
   end 
@@ -35,7 +37,6 @@ class BooksController < ApplicationController
       flash[:notice] = "You have updated user successfully."
       redirect_to book_path(@book)
     else
-      flash.now[:notice] = "更新失敗しました。Title, Opinionどちらも記入してください"
       render :edit
     end
   end
@@ -60,5 +61,13 @@ class BooksController < ApplicationController
   def book_params
     params.require(:book).permit(:title, :body)
   end
+
+  def ensure_correct_user
+    book = Book.find(params[:id])
+    unless book.user.id == current_user.id
+      redirect_to books_path
+    end
+  end
+
 
 end
