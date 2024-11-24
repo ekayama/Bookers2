@@ -7,15 +7,27 @@
   </ul>
 <% end %>
 
-<h2>User info</h2>
-<%= form_with model: @user do |f| %>
-  <label for="inputName">Name</label>
-  <%= f.text_field :name, autofocus: true, id:"inputName", placeholder:"名前"%>
-  <label for="inputImage">ProfileImage</label>
-  <%= f.file_field :profile_image, placeholder: "プロフィール画像", accept: "image/*" %>
-  <label for="inputIntroduction">Introduction</label>
-  <%= f.text_area :introduction, id: "inputIntroduction", rows: 3, cols: 20, placeholder: "自己紹介文" %>
-  <%= f.submit "Update User" %>
-<% end %>
+<div class="container ">
+  <div class="row">
+    <div class="col">
+    <h2>User info</h2>
+    <%= form_with model: @user do |f| %>
+      <div class="col text-md">
+       <label for="inputName">Name</label>
+         <div class="border">
+           <%= f.text_field :name, autofocus: true, id:"inputName", placeholder:"名前", class: "form-control", style: "width: 100%;" %>
+         </div>
+       <label for="inputImage">ProfileImage</label><br>
+      <%= f.file_field :profile_image, placeholder: "プロフィール画像", accept: "image/*"%><br>
+       <label for="inputIntroduction">Introduction</label>
+         <div class="border">
+           <%= f.text_area :introduction, id: "inputIntroduction", rows: 3, cols: 20, placeholder: "自己紹介文", class: "form-control", style: "width: 100%;"%>
+         </div>
+        </div>
+        <%= f.submit "Update User", class: "border rounded bg-secondary text-white mt-2 py-1 ml-3"%>
+    <% end %>
+    </div>
+  </div>
+</div>
 
 

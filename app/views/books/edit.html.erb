@@ -7,15 +7,31 @@
   </ul>
 <% end %>
 
-<h2>Editing Book</h2>
-<%= form_with model: @book do |f| %>
-  <label for="inputTitle">Title</label>
-  <%= f.text_field :title, autofocus: true, id:"inputTitle" %>
-  <label for="inputBody">opinion</label>
-  <%= f.text_area :body, id: "inputBody", rows: 3, cols: 20 %>
-  <%= f.submit "変更を保存" %>
-<% end %>
 
-<%= link_to "Show", books_path %>
-<%= link_to "Back", book_path(@book) %>
+
+<div class="container ">
+ <div class="row">
+ <div class="col">
+  <h1>Editing Book</h1>
+    <%= form_with model: @book do |f| %>
+    <div class="col text-md">
+        <label for="inputTitle">Title</label>
+        <div class="border">
+           <%= f.text_field :title, autofocus: true, id:"inputTitle", class: "form-control", style: "width: 100%;"%>
+         </div>
+         <label for="inputBody">opinion</label>
+         <div class="border">
+           <%= f.text_area :body, id: "inputBody", rows: 3, cols: 20, class: "form-control", style: "width: 100%;"%>
+         </div>
+      </div>
+       <%= f.submit 'Create Book', class: "border rounded bg-success text-white mt-2 py-1 ml-3" %>
+    <% end %>
+ </div>
+ <div class="row my-3">
+  <div class="col">
+    <%= link_to "Show", books_path %>
+    <%= link_to "Back", book_path(@book) %>
+  </div>
+ </div>
+</div>
 

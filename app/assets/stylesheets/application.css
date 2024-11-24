@@ -13,3 +13,8 @@
  *= require_tree .
  *= require_self
  */
+
+ .custom-hr {
+  width: 50px;
+  margin: 5px;
+ }
