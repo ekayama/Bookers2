@@ -1,12 +1,10 @@
-問題ある箇所
----------------
 
 <div class="user-index-container ">
  <div class="row my-3 mx-5">
   <div class="col-md-3">
     <h3>User info</h3>  
      <div class="profile-container">
-     <%= image_tag @user.get_profile_image(100, 100) %>
+     <%= image_tag @book.user.get_profile_image(100, 100) %>
 
      <table class="table">
        <thead>
@@ -17,8 +15,8 @@
        </thead>
        <tbody>
          <tr>
-           <td><%= @user.name %></td>
-           <td><%= @user.introduction %></td>
+           <td><%= @book.user.name %></td>
+           <td><%= @book.user.introduction %></td>
          </tr>
        </tbody>
      </table>
@@ -35,9 +33,9 @@
     
      <h3>New book</h3>
      <div class="book">
-     <%= form_with model: @book do |f| %>
+     <%= form_with model: @book_new do |f| %>
        <div class="row">
-         <div class="col-md-6 offset-md-3">
+         <div class="col">
            <h5>Title</h5>
            <div class="border">
              <%= f.text_field :title, class: "form-control", style: "width: 100%;" %>
@@ -53,8 +51,6 @@
       </div>
      </div>
   </div>
-  --------------------
-
 
 
 
@@ -64,7 +60,7 @@
  <tbody>
   <tr>
     <td><%= image_tag @book.user.get_profile_image(100,100) %></td>
-    <td><%= link_to users_path(@user) do %>←全体的に問題あるけどここも問題ありかも
+    <td><%= link_to users_path(@user) do %>
       <%= @book.title %>
     <% end %>
     </td>

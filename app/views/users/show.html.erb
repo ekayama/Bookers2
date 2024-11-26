@@ -9,13 +9,13 @@
        <thead>
          <tr>
            <th>name</th>
-           <th>introduction</th>
+           <th><%= @user.name %></th>
          </tr>
        </thead>
        <tbody>
          <tr>
-           <td><%= @user.name %></td>
-           <td><%= @user.introduction %></td>
+           <th>introduction</th>
+           <th><%= @user.introduction %></th>
          </tr>
        </tbody>
      </table>
@@ -34,14 +34,14 @@
      <div class="book">
      <%= form_with model: @book do |f| %>
        <div class="row">
-         <div class="col-md-6 offset-md-3">
+         <div class="col">
            <h5>Title</h5>
            <div class="border">
-             <%= f.text_field :title, class: "form-control", style: "width: 100%;" %>
+             <%= f.text_field :title, class: "form-control" %>
            </div>
            <h5>Opinion</h5>
            <div class="border">
-              <%= f.text_area :body, class: "form-control", style: "width: 100%;" %>
+              <%= f.text_area :body, class: "form-control" %>
            </div>
          </div>
        </div>

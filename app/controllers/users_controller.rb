@@ -23,7 +23,7 @@ before_action :is_matching_login_user, only: [:edit, :update]
   end
 
   def edit
-    @user = User.find(params[:id])
+    if @user = User.find(params[:id])
   end
 
   def update
