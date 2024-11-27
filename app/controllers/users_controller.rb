@@ -23,7 +23,8 @@ before_action :is_matching_login_user, only: [:edit, :update]
   end
 
   def edit
-    if @user = User.find(params[:id])
+     is_matching_login_user
+     @user = User.find(params[:id])
   end
 
   def update
@@ -32,7 +33,6 @@ before_action :is_matching_login_user, only: [:edit, :update]
       flash[:notice] = "You have updated user successfully."
       redirect_to user_path(@user.id)
     else
-      # flash.now[:notice] = "更新error。Name、 Introductionどちらも記入してください"
       render :edit
     end
 

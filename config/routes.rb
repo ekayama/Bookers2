@@ -9,6 +9,6 @@ end
 
 
 resources :users
-root to: "homes#top"
-get 'homes/about' => 'homes#about', as: 'about'
+root to: "home#top"
+get 'home/about' => 'home#about', as: 'about'
 end

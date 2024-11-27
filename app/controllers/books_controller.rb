@@ -2,7 +2,7 @@ class BooksController < ApplicationController
 before_action :ensure_correct_user, only: [:edit, :update]
 
   def new
-    
+
   end
 
   def create
@@ -10,16 +10,18 @@ before_action :ensure_correct_user, only: [:edit, :update]
     @book.user_id = current_user.id
     if @book.save
       flash[:notice] = "You have created book successfully."
-      redirect_to books_path
+      redirect_to book_path(@book)
 
       # パスの後ろに引数が必要か否かは「rails routes」で
       # 真ん中に表示されるURLに[:id]と記載があるかないか。なかった場合はパスの後ろには何も必要ない
       # 「:id」の記載があった場合には対象となる引数や変数を設定する必要がある
     else
-      # flash.now[:notice] = "投稿error。Title, Opinionどちらも記入してください"
-      render :new
-    end
-  end 
+      @books = Book.all
+      flash[:notice] = ' errors prohibited this obj from being saved:'
+      render :index
+      end
+   
+  end
 
   def index
     @book = Book.new
@@ -38,7 +40,7 @@ before_action :ensure_correct_user, only: [:edit, :update]
       redirect_to book_path(@book)
     else
       render :edit
-    end
+      end
   end
 
   def show
