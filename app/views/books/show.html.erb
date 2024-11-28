@@ -22,13 +22,13 @@
      
 
      <div class="border border-dark text-center">
-      <% if @user == current_user %>
+      <%# if @book.user == current_user ←今回はそのままボタンと飛び先表示していいのでこのコードとend入らない%>
        <td>
-        <%= link_to edit_user_path(@user) do %>
+        <%= link_to edit_user_path(@book.user) do %>
           <i class="fa-solid fa-user-gear"></i>
         <% end %>
        </td>
-      <% end %>
+      <%# end %>
      </div><br>
     
      <h3>New book</h3>

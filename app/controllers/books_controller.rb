@@ -17,6 +17,7 @@ before_action :ensure_correct_user, only: [:edit, :update]
       # 「:id」の記載があった場合には対象となる引数や変数を設定する必要がある
     else
       @books = Book.all
+      @user = current_user
       flash[:notice] = ' errors prohibited this obj from being saved:'
       render :index
       end
@@ -44,8 +45,8 @@ before_action :ensure_correct_user, only: [:edit, :update]
   end
 
   def show
-    @user = current_user
     @book = Book.find(params[:id])
+    @user = @book.user
     @book_new = Book.new
   end
 
